@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://chjkuubx5rm2x"]
+
+[ext_resource type="PackedScene" uid="uid://d01pwthetjvs7" path="res://player.tscn" id="1_d0i0f"]
+[ext_resource type="Script" uid="uid://bumi5vpkt3rcf" path="res://platformer_game.gd" id="1_vs4rv"]
+[ext_resource type="PackedScene" uid="uid://buhq8ofm30031" path="res://eye_enemy.tscn" id="2_0mybr"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_7gv1n"]
+a = Vector2(-181, 228)
+b = Vector2(974, 227)
+
+[node name="test_room" type="Node2D" unique_id=2013938301]
+script = ExtResource("1_vs4rv")
+
+[node name="Player" parent="." unique_id=1146693993 instance=ExtResource("1_d0i0f")]
+position = Vector2(576, 321)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=823822848]
+
+[node name="Line2D" type="Line2D" parent="StaticBody2D" unique_id=217649549]
+points = PackedVector2Array(-2, 384, 1150, 382)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1213828152]
+position = Vector2(175, 150)
+shape = SubResource("SegmentShape2D_7gv1n")
+
+[node name="eye_enemy" parent="." unique_id=1366882128 instance=ExtResource("2_0mybr")]
+position = Vector2(912, 353)
+
+[connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]

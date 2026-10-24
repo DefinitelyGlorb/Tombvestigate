@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d3acqnn5envxt"]
+
+[ext_resource type="Script" uid="uid://l8r5yi7unqmc" path="res://settings_menu.gd" id="1_0cmel"]
+[ext_resource type="Theme" uid="uid://bubsejwxjtvuw" path="res://menu_button_theme.tres" id="1_ufg0w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufg0w"]
+bg_color = Color(0.8980392, 0.6, 0.6, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.67738426, 0.8106254, 0.99564904, 1)
+corner_radius_top_left = 48
+corner_radius_top_right = 48
+corner_radius_bottom_right = 48
+corner_radius_bottom_left = 48
+
+[sub_resource type="Theme" id="Theme_0cmel"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ufg0w")
+
+[node name="SettingsMenu" type="CanvasLayer" unique_id=1505545945]
+process_mode = 2
+script = ExtResource("1_0cmel")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1328658212]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -277.5
+offset_top = -227.5
+offset_right = 277.5
+offset_bottom = 227.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_0cmel")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1885945732]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="BackButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1186404696]
+custom_minimum_size = Vector2(230, 86)
+layout_mode = 2
+theme = ExtResource("1_ufg0w")
+text = "Back"
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

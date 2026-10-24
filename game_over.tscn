@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://d0m6bds5s6dyk"]
+
+[ext_resource type="Script" uid="uid://bmnaln0skeo7i" path="res://game_over.gd" id="1_y26ei"]
+[ext_resource type="Theme" uid="uid://bubsejwxjtvuw" path="res://menu_button_theme.tres" id="2_yxx3c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u0k70"]
+font_size = 64
+
+[node name="GameOver" type="CanvasLayer" unique_id=1028132110]
+process_mode = 3
+script = ExtResource("1_y26ei")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1087094580]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8039216, 0.6745098, 0.90588236, 1)
+
+[node name="LoseText" type="Label" parent="." unique_id=1005553055]
+anchors_preset = -1
+anchor_left = 0.34375
+anchor_top = 0.14814815
+anchor_right = 0.6605903
+anchor_bottom = 0.28395063
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_u0k70")
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1605482674]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.63600004
+anchor_right = 0.5
+anchor_bottom = 0.63600004
+offset_left = -165.5
+offset_top = -193.12802
+offset_right = 165.5
+offset_bottom = 192.87198
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+size_flags_vertical = 2
+
+[node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=849955791]
+custom_minimum_size = Vector2(230, 86)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("2_yxx3c")
+text = "Continue"
+metadata/_edit_use_anchors_ = true
+
+[node name="MainMenuButton" type="Button" parent="VBoxContainer" unique_id=93609605]
+custom_minimum_size = Vector2(230, 86)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("2_yxx3c")
+text = "Main Menu"
+metadata/_edit_use_anchors_ = true
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1195019041]
+custom_minimum_size = Vector2(230, 86)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+theme = ExtResource("2_yxx3c")
+text = "Quit
+"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
