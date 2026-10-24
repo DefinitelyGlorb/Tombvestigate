@@ -8,6 +8,9 @@
 a = Vector2(-181, 228)
 b = Vector2(974, 227)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_arrdh"]
+size = Vector2(5684, 598)
+
 [node name="test_room" type="Node2D" unique_id=2013938301]
 script = ExtResource("1_vs4rv")
 
@@ -25,5 +28,11 @@ shape = SubResource("SegmentShape2D_7gv1n")
 
 [node name="eye_enemy" parent="." unique_id=1366882128 instance=ExtResource("2_0mybr")]
 position = Vector2(912, 353)
+
+[node name="OutofBounds" type="Area2D" parent="." unique_id=1440335301]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OutofBounds" unique_id=1833906424]
+position = Vector2(1274, 696)
+shape = SubResource("RectangleShape2D_arrdh")
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]

@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal health_depleted
 
 const SPEED = 600.0
+const AIR_SPEED = 750.0
 const JUMP_VELOCITY = -750.0
 
 @onready var dino_sprite = %dino/AnimatedSprite2D
@@ -28,9 +29,17 @@ func _physics_process(delta: float) -> void:
 	if $jump_buffer.time_left > 0 and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$jump_buffer.stop()
-	
+		
+	if Input.is_action_just_pressed("crouch") and is_on_floor():
+		set_collision_mask_value(5, false)
+	if velocity.y >= 500:
+		set_collision_mask_value(5, true)
+
 	var direction = Input.get_axis("move_left", "move_right")
-	velocity.x = direction * SPEED
+	if not is_on_floor():
+		velocity.x = direction * AIR_SPEED
+	else:
+		velocity.x = direction * SPEED
 	if direction < 0:
 		dino_sprite.flip_h = true
 	if direction > 0:
