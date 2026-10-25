@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("crouch") and is_on_floor():
 		set_collision_mask_value(5, false)
-	if velocity.y >= 500:
+	if velocity.y >= 450 and not Input.is_action_pressed("crouch"):
 		set_collision_mask_value(5, true)
 
 	var direction = Input.get_axis("move_left", "move_right")

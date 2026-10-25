@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bubsejwxjtvuw" path="res://menu_button_theme.tres" id="1_hdmo1"]
 [ext_resource type="Script" uid="uid://sjrb1laahi1l" path="res://pause_menu.gd" id="1_nwcfo"]
+[ext_resource type="Script" uid="uid://dkdbwv5364pqr" path="res://button.gd" id="3_05uyy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwcfo"]
 bg_color = Color(0.8980392, 0.6, 0.6, 1)
@@ -42,15 +43,18 @@ size_flags_horizontal = 6
 size_flags_vertical = 3
 
 [node name="SettingsButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1787656105]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(230, 86)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme = ExtResource("1_hdmo1")
 text = "Settings"
+script = ExtResource("3_05uyy")
 metadata/_edit_use_anchors_ = true
 
 [node name="MainMenuButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=717647803]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(230, 86)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -60,6 +64,7 @@ text = "Main Menu"
 metadata/_edit_use_anchors_ = true
 
 [node name="QuitButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1487883155]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(230, 86)
 layout_mode = 2
 size_flags_horizontal = 4

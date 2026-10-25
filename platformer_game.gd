@@ -10,6 +10,3 @@ func _physics_process(_delta: float) -> void:
 
 func _on_player_health_depleted() -> void:
 	get_tree().change_scene_to_node(lose_menu)
-
-func _on_outof_bounds_body_entered(body: Node2D) -> void:
-	body.position = Vector2(0, -50)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://l8r5yi7unqmc" path="res://settings_menu.gd" id="1_0cmel"]
 [ext_resource type="Theme" uid="uid://bubsejwxjtvuw" path="res://menu_button_theme.tres" id="1_ufg0w"]
+[ext_resource type="Script" uid="uid://dkdbwv5364pqr" path="res://button.gd" id="3_mlw3h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ufg0w"]
 bg_color = Color(0.8980392, 0.6, 0.6, 1)
@@ -17,6 +18,9 @@ corner_radius_bottom_left = 48
 
 [sub_resource type="Theme" id="Theme_0cmel"]
 PanelContainer/styles/panel = SubResource("StyleBoxFlat_ufg0w")
+
+[sub_resource type="LabelSettings" id="LabelSettings_u0k70"]
+font_size = 32
 
 [node name="SettingsMenu" type="CanvasLayer" unique_id=1505545945]
 process_mode = 2
@@ -40,12 +44,23 @@ theme = SubResource("Theme_0cmel")
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=616382448]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Jump - Spacebar
+Crouch - Down"
+label_settings = SubResource("LabelSettings_u0k70")
+horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="PanelContainer/VBoxContainer" unique_id=1186404696]
 custom_minimum_size = Vector2(230, 86)
 layout_mode = 2
+size_flags_horizontal = 4
 theme = ExtResource("1_ufg0w")
 text = "Back"
+script = ExtResource("3_mlw3h")
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/BackButton" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

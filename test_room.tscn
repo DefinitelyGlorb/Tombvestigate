@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://chjkuubx5rm2x"]
 
+[ext_resource type="Script" uid="uid://c3238rfxm4j25" path="res://test_room.gd" id="1_arrdh"]
 [ext_resource type="PackedScene" uid="uid://d01pwthetjvs7" path="res://player.tscn" id="1_d0i0f"]
-[ext_resource type="Script" uid="uid://bumi5vpkt3rcf" path="res://platformer_game.gd" id="1_vs4rv"]
 [ext_resource type="PackedScene" uid="uid://buhq8ofm30031" path="res://eye_enemy.tscn" id="2_0mybr"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_7gv1n"]
@@ -12,7 +12,7 @@ b = Vector2(974, 227)
 size = Vector2(5684, 598)
 
 [node name="test_room" type="Node2D" unique_id=2013938301]
-script = ExtResource("1_vs4rv")
+script = ExtResource("1_arrdh")
 
 [node name="Player" parent="." unique_id=1146693993 instance=ExtResource("1_d0i0f")]
 position = Vector2(576, 321)
@@ -32,7 +32,8 @@ position = Vector2(912, 353)
 [node name="OutofBounds" type="Area2D" parent="." unique_id=1440335301]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OutofBounds" unique_id=1833906424]
-position = Vector2(1274, 696)
+position = Vector2(1299, 803)
 shape = SubResource("RectangleShape2D_arrdh")
 
 [connection signal="health_depleted" from="Player" to="." method="_on_player_health_depleted"]
+[connection signal="body_entered" from="OutofBounds" to="." method="_on_outof_bounds_body_entered"]

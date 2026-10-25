@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://crc7rgsy0auxp" path="res://main_menu.gd" id="1_06t4h"]
 [ext_resource type="Theme" uid="uid://bubsejwxjtvuw" path="res://menu_button_theme.tres" id="2_7vrkn"]
+[ext_resource type="Script" uid="uid://dkdbwv5364pqr" path="res://button.gd" id="3_fu7sn"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vs4rv"]
 font_size = 48
@@ -44,15 +45,18 @@ grow_horizontal = 0
 grow_vertical = 2
 
 [node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1053709552]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(230, 86)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 theme = ExtResource("2_7vrkn")
 text = "Continue"
+script = ExtResource("3_fu7sn")
 metadata/_edit_use_anchors_ = true
 
 [node name="SettingsButton" type="Button" parent="VBoxContainer" unique_id=1153640171]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(230, 86)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -61,6 +65,7 @@ theme = ExtResource("2_7vrkn")
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1177087921]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(230, 86)
 layout_mode = 2
 size_flags_horizontal = 4
